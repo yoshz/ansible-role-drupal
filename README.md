@@ -1,7 +1,8 @@
 drupal
 ======
 
-This role installs Drush using PEAR and configures rsyslog and logrotate for Drupal logging .
+An Ansible role for configuring Drupal rsyslog/logrotate and installing Drush.
+
 The rsyslog configuration will forward all log messages of Drupal to the separate file /var/log/drupal.log.
 The lograte configuration will lograte the file each day for 14 days.
 

@@ -1,7 +1,8 @@
 ---
 galaxy_info:
   author: "Yosh de Vos"
-  description: Drupal role for configuring rsyslog and installing drush
+  description: An Ansible role for configuring Drupal rsyslog/logrotate and installing Drush
+  company: Undev
   license: MIT
   version: 0.1
   min_ansible_version: 1.4
