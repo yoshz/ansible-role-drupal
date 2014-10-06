@@ -1,0 +1,4 @@
+---
+drupal_logfile: /var/log/drupal.log
+drupal_user: www-data
+drupal_group: www-data

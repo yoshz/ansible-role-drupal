@@ -1,0 +1,30 @@
+---
+- name: Install php-pear
+  apt: name=php-pear state=present
+
+- name: Configure PEAR channel
+  command: pear channel-discover pear.drush.org
+  register: drush_pear_channel_result
+  changed_when: "'initialized' not in drush_pear_channel_result.stdout"
+  failed_when: "'failed' in drush_pear_channel_result.stdout"
+  tags: [drupal]
+
+- name: Install drush package
+  command: pear install --alldeps drush/drush
+  register: drush_pear_package_result
+  changed_when: "'is already installed' not in drush_pear_package_result.stdout"
+  failed_when:  "'No releases available for package' in drush_pear_package_result.stdout"
+  tags: [drupal]
+
+- name: Setup logrotate
+  template: src=logrotate.j2 dest=/etc/logrotate.d/drupal
+            owner=root group=root mode=0644
+  when: drupal_logfile is defined
+  tags: [drupal]
+
+- name: Setup rsyslog
+  template: src=rsyslog.j2 dest=/etc/rsyslog.d/30-drupal.conf
+            owner=root group=root mode=0644
+  when: drupal_logfile is defined
+  notify: reload rsyslog
+  tags: [drupal]

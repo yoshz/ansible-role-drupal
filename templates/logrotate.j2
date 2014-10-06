@@ -1,0 +1,8 @@
+{{ drupal_logfile }} {
+    daily
+    missingok
+    rotate 14
+    compress
+    notifempty
+    create 644 {{ drupal_user }} {{ drupal_group }}
+}

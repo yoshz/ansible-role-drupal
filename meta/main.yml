@@ -1,0 +1,15 @@
+---
+galaxy_info:
+  author: "Yosh de Vos"
+  description: Drupal role for configuring rsyslog and installing drush
+  license: MIT
+  version: 0.1
+  min_ansible_version: 1.4
+  platforms:
+    - name: Ubuntu
+      versions:
+       - precise
+       - trusty
+  categories:
+    - web
+dependencies: []
