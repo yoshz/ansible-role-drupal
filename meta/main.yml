@@ -1,16 +1,19 @@
 ---
 galaxy_info:
   author: "Yosh de Vos"
-  description: An Ansible role for configuring Drupal rsyslog/logrotate
-  company: Undev
+  description: An Ansible role for configuring rsyslog/logrotate for Drupal
   license: MIT
   version: 0.1
   min_ansible_version: 1.4
   platforms:
     - name: Ubuntu
       versions:
-       - precise
-       - trusty
+       - all
+    - name: Debian
+      versions:
+       - all
   categories:
+    - monitoring
     - web
 dependencies: []
+
